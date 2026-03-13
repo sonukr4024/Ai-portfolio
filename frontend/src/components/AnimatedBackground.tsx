@@ -3,38 +3,48 @@
 export default function AnimatedBackground() {
   return (
     <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-      {/* Grid pattern */}
+      {/* Subtle dot grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.06]"
+        className="absolute inset-0 opacity-[0.35]"
         style={{
-          backgroundImage: `linear-gradient(rgba(139,92,246,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.4) 1px, transparent 1px)`,
-          backgroundSize: "50px 50px",
+          backgroundImage: `radial-gradient(circle, rgba(108,92,231,0.15) 1px, transparent 1px)`,
+          backgroundSize: "30px 30px",
         }}
       />
 
       {/* Floating orb 1 - top right - PURPLE */}
       <div
-        className="absolute -top-20 -right-20 w-[550px] h-[550px] rounded-full animate-orb-1"
-        style={{ background: "radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%)" }}
+        className="absolute -top-24 -right-24 w-[600px] h-[600px] rounded-full animate-orb-1"
+        style={{ background: "radial-gradient(circle, rgba(108,92,231,0.12) 0%, transparent 70%)" }}
       />
 
-      {/* Floating orb 2 - bottom left - INDIGO */}
+      {/* Floating orb 2 - bottom left - LAVENDER */}
       <div
-        className="absolute -bottom-32 -left-32 w-[600px] h-[600px] rounded-full animate-orb-2"
-        style={{ background: "radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%)" }}
+        className="absolute -bottom-36 -left-36 w-[650px] h-[650px] rounded-full animate-orb-2"
+        style={{ background: "radial-gradient(circle, rgba(162,155,254,0.15) 0%, transparent 70%)" }}
       />
 
       {/* Floating orb 3 - center - PINK */}
       <div
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[450px] h-[450px] rounded-full animate-orb-3"
-        style={{ background: "radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%)" }}
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full animate-orb-3"
+        style={{ background: "radial-gradient(circle, rgba(253,121,168,0.08) 0%, transparent 70%)" }}
       />
 
-      {/* Floating orb 4 - mid left - BLUE */}
+      {/* Floating orb 4 - mid right - TEAL */}
       <div
-        className="absolute top-1/4 -left-16 w-[350px] h-[350px] rounded-full animate-orb-1"
-        style={{ background: "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)", animationDelay: "5s", animationDuration: "22s" }}
+        className="absolute top-2/3 -right-16 w-[400px] h-[400px] rounded-full animate-orb-4"
+        style={{ background: "radial-gradient(circle, rgba(0,184,148,0.08) 0%, transparent 70%)" }}
       />
+
+      {/* Decorative spinning ring */}
+      <div className="absolute top-20 right-20 w-32 h-32 animate-spin-slow opacity-[0.06]">
+        <div className="w-full h-full rounded-full border-2 border-dashed border-[var(--color-accent)]" />
+      </div>
+
+      {/* Another decorative ring */}
+      <div className="absolute bottom-32 left-16 w-24 h-24 animate-spin-slow opacity-[0.05]" style={{ animationDirection: "reverse", animationDuration: "30s" }}>
+        <div className="w-full h-full rounded-full border-2 border-dashed border-[var(--color-gradient-3)]" />
+      </div>
 
       {/* Particles - floating dots */}
       <div className="absolute inset-0">
@@ -48,8 +58,8 @@ export default function AnimatedBackground() {
         <div className="particle particle-8" />
       </div>
 
-      {/* Soft vignette - not too dark */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(9,9,11,0.6)_100%)]" />
+      {/* Soft radial fade at edges */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(248,249,252,0.7)_100%)]" />
     </div>
   );
 }

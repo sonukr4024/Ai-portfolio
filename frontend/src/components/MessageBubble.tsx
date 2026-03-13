@@ -31,10 +31,10 @@ export default function MessageBubble({ message }: Props) {
     >
       {/* Avatar */}
       <div
-        className={`w-8 h-8 rounded-lg flex items-center justify-center text-[11px] font-semibold shrink-0 ${
+        className={`w-8 h-8 rounded-xl flex items-center justify-center text-[11px] font-semibold shrink-0 transition-transform duration-300 hover:scale-110 ${
           isUser
-            ? "bg-gradient-to-br from-[var(--color-user-bubble)] to-[var(--color-user-bubble-end)] text-white shadow-lg shadow-purple-500/10"
-            : "bg-[var(--color-surface-2)] border border-[var(--color-border)] text-[var(--color-accent)]"
+            ? "bg-gradient-to-br from-[var(--color-user-bubble)] to-[var(--color-user-bubble-end)] text-white shadow-lg shadow-purple-500/15"
+            : "bg-white border border-[var(--color-border)] text-[var(--color-accent)] shadow-sm"
         }`}
       >
         {isUser ? (
@@ -53,10 +53,10 @@ export default function MessageBubble({ message }: Props) {
 
         {/* Bubble */}
         <div
-          className={`group relative px-4 py-3 rounded-2xl text-[13.5px] leading-relaxed ${
+          className={`group relative px-4 py-3 rounded-2xl text-[13.5px] leading-relaxed transition-shadow duration-300 ${
             isUser
-              ? "bg-gradient-to-br from-[var(--color-user-bubble)] to-[var(--color-user-bubble-end)] text-white rounded-tr-md shadow-lg shadow-purple-500/10"
-              : "bg-[var(--color-ai-bubble)] border border-[var(--color-border)] text-[var(--color-foreground)] rounded-tl-md"
+              ? "bg-gradient-to-br from-[var(--color-user-bubble)] to-[var(--color-user-bubble-end)] text-white rounded-tr-md shadow-lg shadow-purple-500/15 hover:shadow-xl hover:shadow-purple-500/20"
+              : "bg-white border border-[var(--color-border)] text-[var(--color-foreground)] rounded-tl-md shadow-sm hover:shadow-md"
           }`}
         >
           {isUser ? (
@@ -69,10 +69,10 @@ export default function MessageBubble({ message }: Props) {
 
           {/* Actions for AI messages */}
           {!isUser && (
-            <div className="flex items-center gap-2 mt-2 pt-2 border-t border-[var(--color-border)]/50 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex items-center gap-2 mt-2 pt-2 border-t border-[var(--color-border)]/50 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
               <button
                 onClick={handleCopy}
-                className="text-[11px] text-[var(--color-muted)] hover:text-[var(--color-accent)] flex items-center gap-1 transition-colors cursor-pointer"
+                className="text-[11px] text-[var(--color-muted)] hover:text-[var(--color-accent)] flex items-center gap-1 transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95"
               >
                 {copied ? (
                   <>
@@ -95,15 +95,15 @@ export default function MessageBubble({ message }: Props) {
           <div className="mt-1.5 w-full">
             <button
               onClick={() => setShowSources(!showSources)}
-              className="text-[11px] text-[var(--color-muted)] hover:text-[var(--color-accent)] flex items-center gap-1 transition-colors cursor-pointer"
+              className="text-[11px] text-[var(--color-muted)] hover:text-[var(--color-accent)] flex items-center gap-1 transition-all duration-200 cursor-pointer hover:translate-x-0.5"
             >
-              <svg className={`w-3 h-3 transition-transform duration-200 ${showSources ? "rotate-90" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+              <svg className={`w-3 h-3 transition-transform duration-300 ${showSources ? "rotate-90" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               View {message.sources.length} source{message.sources.length > 1 ? "s" : ""} used
             </button>
             {showSources && (
-              <div className="mt-1.5 space-y-1 animate-fade-in">
+              <div className="mt-1.5 space-y-1 stagger-children">
                 {message.sources.map((src, i) => (
-                  <div key={i} className="text-[11px] text-[var(--color-muted)] bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-lg px-3 py-2 line-clamp-2">
+                  <div key={i} className="text-[11px] text-[var(--color-muted)] bg-[var(--color-surface-2)] border border-[var(--color-border)] rounded-lg px-3 py-2 line-clamp-2 animate-pop-in opacity-0" style={{ animationDelay: `${i * 0.05}s`, animationFillMode: "forwards" }}>
                     {src}
                   </div>
                 ))}

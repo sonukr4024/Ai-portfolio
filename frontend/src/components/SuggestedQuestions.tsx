@@ -7,6 +7,8 @@ const suggestions = [
     ),
     text: "Who is Sonu Kumar?",
     sub: "Background & overview",
+    color: "from-purple-500/10 to-indigo-500/10",
+    borderColor: "hover:border-purple-300",
   },
   {
     icon: (
@@ -14,6 +16,8 @@ const suggestions = [
     ),
     text: "What technologies does Sonu specialize in?",
     sub: "Tech stack & tools",
+    color: "from-blue-500/10 to-cyan-500/10",
+    borderColor: "hover:border-blue-300",
   },
   {
     icon: (
@@ -21,6 +25,8 @@ const suggestions = [
     ),
     text: "What backend projects has Sonu built?",
     sub: "Projects & architecture",
+    color: "from-emerald-500/10 to-teal-500/10",
+    borderColor: "hover:border-emerald-300",
   },
   {
     icon: (
@@ -28,6 +34,8 @@ const suggestions = [
     ),
     text: "Describe Sonu's work experience.",
     sub: "Career & roles",
+    color: "from-orange-500/10 to-amber-500/10",
+    borderColor: "hover:border-orange-300",
   },
   {
     icon: (
@@ -35,6 +43,8 @@ const suggestions = [
     ),
     text: "What problems has Sonu solved?",
     sub: "Impact & achievements",
+    color: "from-pink-500/10 to-rose-500/10",
+    borderColor: "hover:border-pink-300",
   },
   {
     icon: (
@@ -42,6 +52,8 @@ const suggestions = [
     ),
     text: "What certifications does Sonu have?",
     sub: "Credentials & awards",
+    color: "from-violet-500/10 to-purple-500/10",
+    borderColor: "hover:border-violet-300",
   },
 ];
 
@@ -52,10 +64,14 @@ interface Props {
 export default function SuggestedQuestions({ onSelect }: Props) {
   return (
     <div className="flex flex-col items-center gap-8 py-12 sm:py-20 px-4 animate-fade-in-up">
-      {/* Avatar with glow */}
+      {/* Avatar with animated rings */}
       <div className="relative animate-float">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--color-gradient-1)] via-[var(--color-gradient-2)] to-[var(--color-gradient-3)] blur-xl opacity-40" />
-        <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[var(--color-gradient-1)] via-[var(--color-gradient-2)] to-[var(--color-gradient-3)] flex items-center justify-center text-white text-3xl font-bold shadow-2xl">
+        {/* Pulsing rings */}
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--color-gradient-1)] via-[var(--color-gradient-2)] to-[var(--color-gradient-3)] blur-2xl opacity-30 animate-breathe" />
+        <div className="absolute -inset-3 rounded-3xl border-2 border-[var(--color-accent)]/20 animate-ring-pulse" />
+        <div className="absolute -inset-6 rounded-3xl border border-[var(--color-accent)]/10 animate-ring-pulse" style={{ animationDelay: "0.5s" }} />
+
+        <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[var(--color-gradient-1)] via-[var(--color-gradient-2)] to-[var(--color-gradient-3)] flex items-center justify-center text-white text-3xl font-bold shadow-xl shadow-[var(--color-accent)]/20">
           SK
         </div>
       </div>
@@ -71,21 +87,21 @@ export default function SuggestedQuestions({ onSelect }: Props) {
         </p>
       </div>
 
-      {/* Suggestion cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 w-full max-w-xl mt-2">
+      {/* Suggestion cards with stagger animation */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-xl mt-2 stagger-children">
         {suggestions.map((q, i) => (
           <button
             key={q.text}
             onClick={() => onSelect(q.text)}
-            className="group text-left px-4 py-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] hover:bg-[var(--color-surface-hover)] hover:border-[var(--color-accent)]/40 text-sm transition-all duration-300 cursor-pointer"
-            style={{ animationDelay: `${i * 0.06}s` }}
+            className={`group text-left px-4 py-4 rounded-xl border border-[var(--color-border)] bg-gradient-to-br ${q.color} hover:bg-[var(--color-surface)] ${q.borderColor} text-sm transition-all duration-300 cursor-pointer hover-lift animate-slide-up opacity-0`}
+            style={{ animationDelay: `${i * 0.08}s`, animationFillMode: "forwards" }}
           >
             <div className="flex items-start gap-3">
-              <div className="mt-0.5 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-colors">
+              <div className="mt-0.5 text-[var(--color-muted)] group-hover:text-[var(--color-accent)] transition-all duration-300 group-hover:scale-110">
                 {q.icon}
               </div>
               <div>
-                <div className="text-[var(--color-foreground)] group-hover:text-[var(--color-accent-hover)] transition-colors font-medium">
+                <div className="text-[var(--color-foreground)] group-hover:text-[var(--color-accent)] transition-colors font-medium">
                   {q.text}
                 </div>
                 <div className="text-[11px] text-[var(--color-muted)] mt-0.5">{q.sub}</div>
