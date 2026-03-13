@@ -1,0 +1,168 @@
+SONU KUMAR
+Senior Software Engineer | AI & Full-Stack Developer
+
+Contact:
+Email: sonu.kumar@email.com
+Phone: +91-9876543210
+Location: Bangalore, India
+LinkedIn: linkedin.com/in/sonukumar
+GitHub: github.com/sonukumar
+Portfolio: sonukumar.dev
+
+================================================================================
+PROFESSIONAL SUMMARY
+================================================================================
+
+Experienced Senior Software Engineer with 7+ years of expertise in designing, developing, and deploying scalable web applications and distributed systems. Proficient in full-stack development with a strong focus on backend architecture, cloud services, and AI/ML integration. Passionate about building high-performance systems and mentoring engineering teams. Proven track record of leading engineering teams, architecting microservices platforms, and integrating AI/ML solutions into production systems.
+
+================================================================================
+TECHNICAL SKILLS
+================================================================================
+
+Programming Languages: Python, Java, JavaScript, TypeScript, Go, C++
+Frontend: React, Next.js, Angular, Vue.js, HTML5, CSS3, Tailwind CSS
+Backend: FastAPI, Django, Flask, Spring Boot, Node.js, Express.js
+Databases: PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch, DynamoDB
+Cloud & DevOps: AWS (EC2, S3, Lambda, ECS, RDS), GCP, Docker, Kubernetes, Terraform, Jenkins, GitHub Actions, CI/CD
+AI/ML: LangChain, OpenAI API, Anthropic Claude API, Hugging Face, TensorFlow, PyTorch, FAISS, Vector Databases, RAG Pipelines
+Message Queues: Apache Kafka, RabbitMQ, AWS SQS
+Tools: Git, Jira, Confluence, Postman, Swagger, Grafana, Prometheus, DataDog
+Architecture: Microservices, Event-Driven Architecture, Domain-Driven Design, CQRS, REST, GraphQL, gRPC
+
+================================================================================
+WORK EXPERIENCE
+================================================================================
+
+SENIOR SOFTWARE ENGINEER | TechCorp Solutions, Bangalore
+January 2022 - Present (3+ years)
+
+- Led the development of a microservices-based e-commerce platform serving 2M+ daily active users with 99.95% uptime
+- Architected and implemented a real-time recommendation engine using Python, FastAPI, and machine learning models, increasing user engagement by 35%
+- Designed event-driven architecture using Apache Kafka for order processing, reducing end-to-end latency by 60%
+- Built a RAG-based AI assistant using LangChain, FAISS, and Claude API for internal knowledge management, reducing support ticket volume by 40%
+- Mentored a team of 8 junior developers, conducting weekly code reviews and establishing coding standards and best practices
+- Implemented comprehensive CI/CD pipelines using GitHub Actions and Docker, reducing deployment time from 2 hours to 15 minutes (70% improvement)
+- Optimized database queries and implemented caching strategies with Redis, improving API response times by 45%
+- Designed and implemented rate limiting, circuit breakers, and retry mechanisms for resilient API architecture
+- Led migration from monolithic architecture to microservices, breaking down the system into 12 independently deployable services
+
+SOFTWARE ENGINEER | InnovateTech Labs, Hyderabad
+June 2019 - December 2021 (2.5 years)
+
+- Developed a scalable healthcare data platform processing 500K+ patient records daily using Python and Django
+- Built RESTful APIs and GraphQL endpoints for a patient management system used by 50+ hospitals across India
+- Implemented real-time monitoring dashboards using React, D3.js, and WebSocket connections for live data visualization
+- Designed and deployed containerized microservices on AWS ECS with auto-scaling capabilities handling 3x traffic spikes
+- Created automated testing suites achieving 95% code coverage using pytest, Selenium, and Playwright
+- Collaborated with data science team to integrate ML models for predictive health analytics, improving early detection rates by 25%
+- Implemented HIPAA-compliant data encryption and access control mechanisms
+- Built ETL pipelines using Apache Airflow for processing and transforming healthcare data
+
+JUNIOR SOFTWARE ENGINEER | StartupXYZ, Pune
+July 2017 - May 2019 (2 years)
+
+- Developed full-stack web applications using React, Node.js, and MongoDB serving 50K+ users
+- Built payment integration modules supporting Stripe, Razorpay, and PayPal with PCI DSS compliance
+- Implemented user authentication and authorization using OAuth 2.0 and JWT with multi-factor authentication
+- Created responsive mobile-first designs using CSS3, Bootstrap, and later migrated to Tailwind CSS
+- Contributed to 15+ open-source projects and maintained internal developer documentation
+- Reduced page load time by 40% through code splitting, lazy loading, and image optimization
+
+================================================================================
+KEY PROJECTS
+================================================================================
+
+1. AI-POWERED PORTFOLIO ASSISTANT
+   Description: Built a conversational AI assistant that answers questions about professional experience using RAG pipeline
+   Technologies: Python, FastAPI, LangChain, FAISS, Claude API, Next.js, React, TypeScript, Tailwind CSS
+   Features: PDF resume parsing, vector embeddings, semantic search, real-time streaming responses, dark mode UI
+   Impact: Demonstrates cutting-edge AI integration skills and modern web development capabilities
+
+2. REAL-TIME ANALYTICS DASHBOARD
+   Description: Developed a real-time analytics platform for monitoring business KPIs with live data visualization
+   Technologies: React, D3.js, WebSocket, Node.js, PostgreSQL, Redis, Docker
+   Features: Live charts, customizable widgets, alert system, export functionality
+   Impact: Handles 10K+ concurrent connections with sub-second latency, used by 200+ business analysts
+
+3. DISTRIBUTED TASK SCHEDULER
+   Description: Built a distributed task scheduling system for processing background jobs at massive scale
+   Technologies: Go, gRPC, Redis, PostgreSQL, Kubernetes, Prometheus
+   Features: Priority queues, retry mechanisms, dead letter queues, real-time monitoring
+   Impact: Processes 1M+ tasks daily with 99.9% reliability and automatic failover
+
+4. E-COMMERCE MICROSERVICES PLATFORM
+   Description: Architected a complete e-commerce solution with independently deployable microservices
+   Technologies: Java, Spring Boot, Apache Kafka, Docker, Kubernetes, AWS, PostgreSQL
+   Features: Product catalog, order management, payment processing, inventory tracking, recommendation engine
+   Impact: Serves 2M+ daily active users with 99.95% uptime and handles 10K+ orders per minute
+
+5. HEALTHCARE DATA PIPELINE
+   Description: Designed an ETL pipeline for processing and analyzing healthcare data at scale
+   Technologies: Python, Apache Airflow, Apache Spark, AWS S3, Redshift, Docker
+   Features: HIPAA-compliant processing, data validation, anomaly detection, automated reporting
+   Impact: Processes 500K+ records daily with zero data loss and full audit trail
+
+6. OPEN-SOURCE CONTRIBUTIONS
+   Description: Active contributor to open-source ecosystem
+   Projects: Contributed to FastAPI, LangChain, and several React component libraries
+   Impact: 500+ GitHub stars across personal projects, 15+ merged PRs to major open-source projects
+
+================================================================================
+EDUCATION
+================================================================================
+
+BACHELOR OF TECHNOLOGY (B.Tech) in Computer Science and Engineering
+Indian Institute of Technology (IIT), Delhi
+2013 - 2017
+CGPA: 8.7/10
+Relevant Coursework: Data Structures, Algorithms, Database Systems, Operating Systems, Computer Networks, Machine Learning, Distributed Systems
+
+================================================================================
+CERTIFICATIONS
+================================================================================
+
+- AWS Solutions Architect - Professional (2023)
+- Google Cloud Professional Cloud Architect (2022)
+- Certified Kubernetes Administrator (CKA) (2022)
+- MongoDB Certified Developer (2021)
+- HashiCorp Certified Terraform Associate (2023)
+
+================================================================================
+ACHIEVEMENTS & RECOGNITION
+================================================================================
+
+- Winner of Internal Hackathon at TechCorp Solutions (2023) - Built an AI-powered code review tool
+- Speaker at PyCon India 2022 - Topic: "Building Scalable RAG Pipelines with Python"
+- Published technical blog with 10K+ monthly readers on Medium covering Python, AI/ML, and system design
+- Contributed to 15+ open-source projects on GitHub with 500+ stars across repositories
+- Received "Engineering Excellence Award" at InnovateTech Labs (2021) for healthcare platform work
+- Top 5% on LeetCode with 800+ problems solved
+- Mentored 20+ junior developers throughout career
+
+================================================================================
+PROBLEM-SOLVING HIGHLIGHTS
+================================================================================
+
+- Reduced e-commerce platform latency by 60% by redesigning the order processing pipeline from synchronous REST calls to event-driven architecture using Kafka
+- Solved database bottleneck serving 2M users by implementing read replicas, connection pooling, and Redis caching layer
+- Fixed critical healthcare data pipeline failure that was causing 5% data loss by implementing idempotent processing and dead letter queues
+- Resolved production memory leak in Node.js service by profiling heap snapshots and optimizing event listener management
+- Improved CI/CD pipeline reliability from 85% to 99% by implementing parallel test execution and flaky test detection
+
+================================================================================
+LANGUAGES
+================================================================================
+
+- English (Professional proficiency)
+- Hindi (Native)
+
+================================================================================
+INTERESTS
+================================================================================
+
+- Artificial Intelligence & Machine Learning Research
+- Open Source Development & Community Building
+- Technical Writing & Knowledge Sharing
+- System Design & Distributed Computing
+- Competitive Programming & Algorithm Design
+- Mentoring & Teaching

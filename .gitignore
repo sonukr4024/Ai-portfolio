@@ -1,0 +1,14 @@
+node_modules/
+.next/
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+dist/
+*.egg-info/
+.DS_Store
+*.log
+playwright-report/
+test-results/
+.idea/
