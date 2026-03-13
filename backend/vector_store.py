@@ -1,47 +1,42 @@
 import logging
 import numpy as np
-from sentence_transformers import SentenceTransformer
-import faiss
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-from config import EMBEDDING_MODEL, TOP_K_RESULTS, SIMILARITY_THRESHOLD
+from config import TOP_K_RESULTS, SIMILARITY_THRESHOLD
 
 logger = logging.getLogger(__name__)
 
 
 class VectorStore:
     def __init__(self):
-        self._model = None
-        self.index = None
+        self.vectorizer = None
+        self.tfidf_matrix = None
         self.chunks: list[str] = []
-
-    @property
-    def model(self):
-        if self._model is None:
-            logger.info(f"Loading embedding model: {EMBEDDING_MODEL}")
-            self._model = SentenceTransformer(EMBEDDING_MODEL)
-        return self._model
 
     def build_index(self, chunks: list[str]):
         self.chunks = chunks
-        logger.info(f"Generating embeddings for {len(chunks)} chunks")
-        embeddings = self.model.encode(chunks, normalize_embeddings=True)
-        embeddings = np.array(embeddings, dtype="float32")
-        dimension = embeddings.shape[1]
-        self.index = faiss.IndexFlatIP(dimension)
-        self.index.add(embeddings)
-        logger.info(f"FAISS index built: {self.index.ntotal} vectors, dim={dimension}")
+        logger.info(f"Building TF-IDF index for {len(chunks)} chunks")
+        self.vectorizer = TfidfVectorizer(
+            stop_words="english",
+            max_features=5000,
+            ngram_range=(1, 2),
+            sublinear_tf=True,
+        )
+        self.tfidf_matrix = self.vectorizer.fit_transform(chunks)
+        logger.info(f"TF-IDF index built: {self.tfidf_matrix.shape[0]} vectors, dim={self.tfidf_matrix.shape[1]}")
 
     def search(self, query: str, top_k: int = TOP_K_RESULTS) -> list[dict]:
-        if self.index is None:
+        if self.vectorizer is None or self.tfidf_matrix is None:
             raise RuntimeError("Vector store not initialized")
-        query_emb = self.model.encode([query], normalize_embeddings=True)
-        query_emb = np.array(query_emb, dtype="float32")
-        scores, indices = self.index.search(query_emb, top_k)
+        query_vec = self.vectorizer.transform([query])
+        scores = cosine_similarity(query_vec, self.tfidf_matrix).flatten()
+        top_indices = np.argsort(scores)[::-1][:top_k]
         results = []
-        for score, idx in zip(scores[0], indices[0]):
-            if idx < len(self.chunks) and score >= SIMILARITY_THRESHOLD:
-                results.append({"text": self.chunks[idx], "score": float(score)})
-        logger.info(f"Search '{query[:50]}' -> {len(results)} results (best={scores[0][0]:.3f})")
+        for idx in top_indices:
+            if scores[idx] >= SIMILARITY_THRESHOLD:
+                results.append({"text": self.chunks[idx], "score": float(scores[idx])})
+        logger.info(f"Search '{query[:50]}' -> {len(results)} results (best={scores[top_indices[0]]:.3f})")
         return results
 
 
