@@ -10,10 +10,16 @@ logger = logging.getLogger(__name__)
 
 class VectorStore:
     def __init__(self):
-        logger.info(f"Loading embedding model: {EMBEDDING_MODEL}")
-        self.model = SentenceTransformer(EMBEDDING_MODEL)
+        self._model = None
         self.index = None
         self.chunks: list[str] = []
+
+    @property
+    def model(self):
+        if self._model is None:
+            logger.info(f"Loading embedding model: {EMBEDDING_MODEL}")
+            self._model = SentenceTransformer(EMBEDDING_MODEL)
+        return self._model
 
     def build_index(self, chunks: list[str]):
         self.chunks = chunks
