@@ -24,14 +24,12 @@ def get_client() -> anthropic.Anthropic:
     return anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
 
-def generate_answer(question: str, context_chunks: list[dict]) -> str:
-    if not context_chunks:
+def generate_answer(question: str, resume_text: str) -> str:
+    if not resume_text:
         return "The information is not available in Sonu Kumar's portfolio data."
 
-    context = "\n\n---\n\n".join(chunk["text"] for chunk in context_chunks)
-
     user_message = f"""Portfolio Context:
-{context}
+{resume_text}
 
 ---
 Question: {question}
@@ -55,4 +53,4 @@ Answer using ONLY the portfolio context above. If the answer is not in the conte
         return "Error: Invalid API key. Please configure ANTHROPIC_API_KEY."
     except Exception as e:
         logger.error(f"Claude API error: {e}")
-        return f"Error generating response. Please try again."
+        return "Error generating response. Please try again."

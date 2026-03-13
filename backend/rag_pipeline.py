@@ -2,12 +2,14 @@ import logging
 from pathlib import Path
 from collections import OrderedDict
 
-from resume_loader import load_resume, chunk_text
-from vector_store import vector_store
+from resume_loader import load_resume
 from claude_client import generate_answer
-from config import RESUME_PATH, CHUNK_SIZE, CHUNK_OVERLAP, MAX_CACHE_SIZE
+from config import RESUME_PATH, MAX_CACHE_SIZE
 
 logger = logging.getLogger(__name__)
+
+# Store resume text in memory
+_resume_text: str = ""
 
 
 class QueryCache:
@@ -35,12 +37,10 @@ cache = QueryCache()
 
 
 def initialize_rag(resume_path: Path = RESUME_PATH):
-    logger.info("Initializing RAG pipeline...")
-    text = load_resume(resume_path)
-    logger.info(f"Resume loaded: {len(text)} chars")
-    chunks = chunk_text(text, CHUNK_SIZE, CHUNK_OVERLAP)
-    vector_store.build_index(chunks)
-    logger.info("RAG pipeline ready")
+    global _resume_text
+    logger.info("Loading resume...")
+    _resume_text = load_resume(resume_path)
+    logger.info(f"Resume loaded: {len(_resume_text)} chars")
 
 
 def reload_resume(resume_path: Path = RESUME_PATH):
@@ -56,10 +56,8 @@ def ask(question: str) -> dict:
     if cached:
         return cached
 
-    results = vector_store.search(question)
-    sources = [r["text"][:120] + "..." for r in results]
-    answer = generate_answer(question, results)
+    answer = generate_answer(question, _resume_text)
 
-    response = {"question": question, "answer": answer, "sources": sources}
+    response = {"question": question, "answer": answer, "sources": []}
     cache.put(normalized, response)
     return response

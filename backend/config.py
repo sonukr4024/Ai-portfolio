@@ -17,12 +17,6 @@ _data_candidates = [
 DATA_DIR = next((d for d in _data_candidates if d.exists()), BASE_DIR / "data")
 RESUME_PATH = DATA_DIR / "resume.txt"
 
-# RAG Settings
-CHUNK_SIZE = 500
-CHUNK_OVERLAP = 50
-SIMILARITY_THRESHOLD = 0.05
-TOP_K_RESULTS = 5
-
 # Claude Settings
 CLAUDE_MODEL = "claude-sonnet-4-20250514"
 MAX_TOKENS = 1024
